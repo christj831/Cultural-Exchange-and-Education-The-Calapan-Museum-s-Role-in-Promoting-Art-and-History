@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: 'http://localhost:8081' })); // Vue app's port
+app.use(cors({ origin: 'http://localhost:8080' })); // Vue app's port
 
 app.use('/api/auth', authRoutes);
 

@@ -5,13 +5,13 @@ import Login from '../views/Login.vue';  // Make sure you import the Login compo
 import Homepage from '../views/Homepage.vue';
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: Home,
-  // },
   {
-    path: '/register',
+    // path: '/',
+    // name: 'home',
+    // component: Home,
+  },
+  {
+    path: '/',
     name: 'register',
     component: Register,
   },

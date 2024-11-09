@@ -39,7 +39,7 @@ exports.login = (req, res) => {
         message: 'Login successful',
         token: token,
         user: {
-          name: `${user.first_name} ${user.middle_name} ${user.last_name}`, r
+          name: `${user.first_name} ${user.middle_name} ${user.last_name}`, 
           email: account.email,  // User's email
         },
       });
@@ -215,7 +215,7 @@ exports.verifyEmail = (req, res) => {
               <div class="message-box">
                 <h2>Email Verified Successfully!</h2>
                 <p>Your email has been verified. You can now log in to your account.</p>
-                <a href="http://localhost:8081/login" class="btn-login">Login Now</a>
+                <a href="http://localhost:8080/login" class="btn-login">Login Now</a>
               </div>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
