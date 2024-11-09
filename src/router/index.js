@@ -1,25 +1,43 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+// import Home from '../views/Home.vue';
+import Register from '../views/Register.vue';
+import Login from '../views/Login.vue';  // Make sure you import the Login component
+import Homepage from '../views/Homepage.vue';
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'home',
+  //   component: Home,
+  // },
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/register',
+    name: 'register',
+    component: Register,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/login',  // Define the login route
+    name: 'login',
+    component: Login,  // Ensure you have a Login.vue component
+  },
+  {
+    path: '/homepage',
+    name: 'homepage',
+    component: Homepage,
+    beforeEnter: (to, from, next) => {
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        next('/login'); // Redirect to login if no token found
+      } else {
+        next();
+      }
+    },
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
